@@ -138,7 +138,7 @@ dependencies.select(&:top_level?).each do |dep|
     credentials: credentials,
   )
 
-  puts " after new checker "
+  puts " after new checker: #{checker} "
   next if checker.up_to_date?
 
   puts " after up to date "
