@@ -165,7 +165,9 @@ dependencies.select(&:top_level?).each do |dep|
     credentials: credentials,
   )
 
+  puts "done1"
   updated_files = updater.updated_dependency_files
+  puts "done2"
 
   ########################################
   # Create a pull request for the update #
@@ -179,6 +181,7 @@ dependencies.select(&:top_level?).each do |dep|
     assignees: [(ENV["PULL_REQUESTS_ASSIGNEE"] || ENV["GITLAB_ASSIGNEE_ID"])&.to_i],
     label_language: true,
   )
+  puts "done3"
   pull_request = pr_creator.create
   puts " submitted"
 
