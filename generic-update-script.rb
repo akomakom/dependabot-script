@@ -138,8 +138,10 @@ dependencies.select(&:top_level?).each do |dep|
     credentials: credentials,
   )
 
+  puts " after new checker "
   next if checker.up_to_date?
 
+  puts " after up to date "
   requirements_to_unlock =
     if !checker.requirements_unlocked_or_can_be?
       if checker.can_update?(requirements_to_unlock: :none) then :none
@@ -152,6 +154,7 @@ dependencies.select(&:top_level?).each do |dep|
 
   next if requirements_to_unlock == :update_not_possible
 
+  puts " after can up date "
   updated_deps = checker.updated_dependencies(
     requirements_to_unlock: requirements_to_unlock
   )
